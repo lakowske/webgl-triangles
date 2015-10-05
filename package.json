@@ -1,0 +1,25 @@
+{
+  "name": "webgl-triangles",
+  "version": "1.0.0",
+  "description": "An example of drawing triangles in WebGL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lakowske/webgl-triangles.git"
+  },
+  "keywords": [
+    "WebGL",
+    "Triangles",
+    "Browserify",
+    "gl-mat4"
+  ],
+  "author": "Seth Lakowske",
+  "license": "BSDv3",
+  "bugs": {
+    "url": "https://github.com/lakowske/webgl-triangles/issues"
+  },
+  "homepage": "https://github.com/lakowske/webgl-triangles"
+}
