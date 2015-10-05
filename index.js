@@ -2,12 +2,10 @@ var mat4 = require('gl-mat4');
 var svs  = require('./vertex.c');
 var sfs  = require('./fragment.c');
 
-setup();
+// Adds a canvas to the parent element and start rendering the scene
+function add(parentEL) {
 
-// Adds a canvas to the page and start rendering the scene
-function setup() {
-    var body     = document.getElementsByTagName('body')[0];
-    var glCanvas = getCanvas(body);
+    var glCanvas = getCanvas(parentEL);
 
     //Create a matrix to transform the triangle
     var matrix = mat4.create();
@@ -142,3 +140,5 @@ function simpleRenderer(gl, aspect, vertices) {
     }
 
 }
+
+module.exports = add;
