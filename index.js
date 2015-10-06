@@ -1,9 +1,7 @@
 var mat4 = require('gl-mat4');
-var svs  = require('./vertex.c');
-var sfs  = require('./fragment.c');
 
 // Adds a canvas to the parent element and start rendering the scene
-function add(parentEL) {
+function add(parentEL, vert, frag) {
 
     var glCanvas = getCanvas(parentEL);
 
@@ -17,7 +15,7 @@ function add(parentEL) {
     glCanvas.gl.enable(glCanvas.gl.DEPTH_TEST);
     
     //create a simple renderer for a simple triangle
-    var renderer = simpleRenderer(glCanvas.gl, 1, new Float32Array([-0.5,-0.5,-1.0,0.0,0.5,-1.0,0.5,-0.5,-1.0]));
+    var renderer = simpleRenderer(glCanvas.gl, 1, vert, frag, new Float32Array([-0.5,-0.5,-1.0,0.0,0.5,-1.0,0.5,-0.5,-1.0]));
 
 
     //Called when a frame is scheduled.  A rapid sequence of scene draws creates the animation effect.
@@ -82,14 +80,14 @@ function handleMouseMove(matrix) {
 }
 
 //Returns a simple rendering function that draws the passed in vertices.
-function simpleRenderer(gl, aspect, vertices) {
+function simpleRenderer(gl, aspect, vert, frag, vertices) {
 
     var vertexShader = gl.createShader(gl.VERTEX_SHADER);
-    gl.shaderSource(vertexShader, svs());
+    gl.shaderSource(vertexShader, vert());
     gl.compileShader(vertexShader);
     
     var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
-    gl.shaderSource(fragmentShader, sfs());
+    gl.shaderSource(fragmentShader, frag());
     gl.compileShader(fragmentShader);
     
     var shaders = [vertexShader, fragmentShader];
