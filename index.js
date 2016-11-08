@@ -1,6 +1,7 @@
 var mat4 = require('gl-mat4');
 
 // Adds a canvas to the parent element and start rendering the scene
+// using the given vertex and fragment shaders.
 function add(parentEL, vert, frag) {
 
     var glCanvas = getCanvas(parentEL);
