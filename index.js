@@ -99,7 +99,6 @@ function simpleRenderer(gl, aspect, vert, frag, vertices) {
     gl.linkProgram(program);
     
     return function(parentNode, color) {
-        gl.clear(gl.COLOR_BUFFER_BIT);
 
         //Field of view is very similar to a cameras field of view.
         var fieldOfView = Math.PI/2;
